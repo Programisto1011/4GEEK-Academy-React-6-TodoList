@@ -6,10 +6,6 @@ import "../../styles/ElementList.css";
 
 //create your first component
 const ElementList = (props) => {
-	const handleClick = (ev) => {
-		setisActive(true);
-		props.handleClick(ev);
-	};
 	return (
 		<div className="row d-flex">
 			{/*Modifica estilo función valor checkbox (tacha el name) */}
@@ -25,10 +21,8 @@ const ElementList = (props) => {
 			</div>
 
 			{/*Botón que llama a una función que se introduce desde fuera*/}
-			<div className="col-1 bg-secondary text-center">
-				<button className="align-self-center" onClick={handleClick}>
-					X
-				</button>
+			<div className="col-1 text-center ">
+				<button className="btn btn-primary">X</button>
 			</div>
 		</div>
 	);
