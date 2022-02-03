@@ -37,7 +37,7 @@ const Panel = () => {
 						value={inputValue}
 					/>
 					<button
-						onClick={() => {
+						onClick={(e) => {
 							addElementListArr();
 						}}>
 						Insert
