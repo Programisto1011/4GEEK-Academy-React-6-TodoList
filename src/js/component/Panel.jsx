@@ -1,16 +1,19 @@
 import React from "react";
+import * as PropTypes from "prop-types";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+//import components
+import ElementList from "./ElementList.jsx";
+
+//include your styles into the webpack bundle
+import "../../styles/Main.css";
 
 //create your first component
-const Home = () => {
+const Panel = () => {
 	return (
 		<div>
+			<ElementList />
 			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
+
 			<a href="#" className="btn btn-success">
 				If you see this green button... bootstrap is working...
 			</a>
@@ -23,4 +26,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default Panel;
