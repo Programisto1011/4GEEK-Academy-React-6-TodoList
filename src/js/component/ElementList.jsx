@@ -5,12 +5,31 @@ import * as PropTypes from "prop-types";
 import "../../styles/ElementList.css";
 
 //create your first component
-const ElementList = () => {
+const ElementList = (props) => {
+	const handleClick = (ev) => {
+		setisActive(true);
+		props.handleClick(ev);
+	};
 	return (
-		<div className="">
-			<h1 className="text-center mt-5">Hacer la colada</h1>
-			<input type="checkbox" />
-			<button> X </button>
+		<div className="row d-flex">
+			{/*Modifica estilo función valor checkbox (tacha el name) */}
+			{/*Nombre de la tarea*/}
+			<div className="col-11 bg-light d-flex">
+				<input
+					className="align-self-center"
+					type="checkbox"
+					id="name"
+					name="name"
+				/>
+				<label name="name">{props.name}</label>
+			</div>
+
+			{/*Botón que llama a una función que se introduce desde fuera*/}
+			<div className="col-1 bg-secondary text-center">
+				<button className="align-self-center" onClick={handleClick}>
+					X
+				</button>
+			</div>
 		</div>
 	);
 };

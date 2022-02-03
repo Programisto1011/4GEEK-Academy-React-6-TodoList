@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import * as PropTypes from "prop-types";
 
 //import components
@@ -9,20 +9,20 @@ import "../../styles/Main.css";
 
 //create your first component
 const Panel = () => {
+	const [inputValue, setInputValue] = useState("-");
+	const Funcionality = (ev) => {};
 	return (
-		<div>
-			<ElementList />
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
+		<>
+			<div>
+				<input
+					type="text"
+					onChange={(e) => setInputValue(e.target.value)}
+					value={inputValue}
+				/>
 
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
+				<ElementList name={inputValue} handleClick={Funcionality} />
+			</div>
+		</>
 	);
 };
 
