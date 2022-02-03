@@ -8,25 +8,40 @@ import ElementList from "./ElementList.jsx";
 import "../../styles/Main.css";
 
 //create your first component
+const listArr = ["hola", "tu"];
+
 const Panel = () => {
-	const listArr = ["hola", "tu"];
 	const [inputValue, setInputValue] = useState("");
 
 	//Añadir elemento a la lista
 	const addElementListArr = () => {
-		setInputValue(document.querySelector("#input").value);
-		listArr.push(inputValue);
-		console.log(listArr);
+		if (inputValue !== "") {
+			listArr.push(inputValue);
+			console.log(listArr);
+		}
 		//Eliminar elemento de la lista
-		const Funcionality = (ev) => {};
+	};
+	const Funcionality = (ev) => {
+		if (inputValue !== "") {
+			console.log("hola");
+		}
 	};
 
 	return (
 		<>
 			<div>
 				<div className="row d-flex">
-					<input id="input" type="text" value="0" />
-					<button onClick={addElementListArr()}>Insert</button>
+					<input
+						type="text"
+						onChange={(e) => setInputValue(e.target.value)}
+						value={inputValue}
+					/>
+					<button
+						onClick={() => {
+							addElementListArr();
+						}}>
+						Insert
+					</button>
 				</div>
 
 				<ElementList name={inputValue} handleClick={Funcionality} />
