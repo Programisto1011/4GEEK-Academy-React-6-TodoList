@@ -1,8 +1,10 @@
 label { 
-    width: 100%;
+    width: 80%;
  }
-
 input[type="checkbox"]:checked + label {
     background: rgb(228, 225, 225);
     text-decoration:line-through;
+}
+.row{
+    width: 100%;
 }

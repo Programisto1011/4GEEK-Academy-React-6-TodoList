@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import * as PropTypes from "prop-types";
 
 import ElementList from "./ElementList.jsx";
 
-import "../../styles/Main.css";
+import "../../styles/Panel.css";
 
 const Panel = () => {
 	const [inputValue, setInputValue] = useState("");
-	const [list, setList] = useState([""]);
+	const [list, setList] = useState([]);
 
 	const deleteElement = (index) => {
 		console.log(list);
@@ -18,16 +17,16 @@ const Panel = () => {
 		console.log(`Se ha eliminado el elemento ${index} de la lista`);
 	};
 
-	var listItems = "";
-	// useEffect(() => {
-	listItems = list.map((inputValue, index) => (
-		<ElementList
-			key={index}
-			name={inputValue}
-			handleClick={() => deleteElement(index)}
-		/>
-	));
-	// }, [list]);
+	if (list.length !== 0) {
+		var listItems;
+		listItems = list.map((inputValue, index) => (
+			<ElementList
+				key={index}
+				name={inputValue}
+				handleClick={() => deleteElement(index)}
+			/>
+		));
+	}
 
 	const addElementListArr = () => {
 		setList([...list, inputValue]);
@@ -36,7 +35,7 @@ const Panel = () => {
 
 	return (
 		<>
-			<div>
+			<div class="container-flex">
 				<div className="row d-flex">
 					<input
 						type="text"
@@ -50,7 +49,7 @@ const Panel = () => {
 						Insert
 					</button>
 				</div>
-				{listItems}
+				{list.length !== 0 ? listItems : ""}
 			</div>
 		</>
 	);

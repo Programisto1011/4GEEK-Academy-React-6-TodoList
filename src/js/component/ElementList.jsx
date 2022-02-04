@@ -12,9 +12,7 @@ const ElementList = (props) => {
 
 	return (
 		<div className="row d-flex">
-			{/*Modifica estilo función valor checkbox (tacha el name) */}
-			{/*Nombre de la tarea*/}
-			<div className="col-11 bg-light d-flex">
+			<div className="bg-light d-flex">
 				<input
 					className="align-self-center"
 					type="checkbox"
@@ -23,15 +21,17 @@ const ElementList = (props) => {
 				/>
 				<label name="name">{props.name}</label>
 			</div>
-
-			{/*Botón que llama a una función que se introduce desde fuera*/}
-			<div className="col-1 text-center ">
+			<div className="text-center ">
 				<button onClick={handleClick} className="btn btn-primary">
 					X
 				</button>
 			</div>
 		</div>
 	);
+};
+
+ElementList.propTypes = {
+	name: PropTypes.string,
 };
 
 export default ElementList;
