@@ -10,7 +10,9 @@ import "../../styles/Main.css";
 const Main = () => {
 	return (
 		<>
-			<Panel />
+			<div className="body">
+				<Panel />
+			</div>
 		</>
 	);
 };
